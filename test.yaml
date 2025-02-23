@@ -28,4 +28,4 @@
 web_server:
 
 # Include main functionality file
-<<: !include .screen_base.yaml
+<<: !include git/m5paper_esphome/screen_base.yaml
