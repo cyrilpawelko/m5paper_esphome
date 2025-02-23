@@ -7,7 +7,7 @@ namespace m5paper {
 
 // hack to hold power lines up in deep sleep mode
 // battery life isn't great with deep sleep, recommend bm8563 sleep
-#define ALLOW_ESPHOME_DEEP_SLEEP true
+#define ALLOW_ESPHOME_DEEP_SLEEP false
 
 static const char *TAG = "m5paper.component";
 
