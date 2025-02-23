@@ -20,7 +20,7 @@ esp32:
 external_components:
   - source:
       type: local
-      path: ./components
+      path: ./git/m5paper_esphome/components
 
 # Enable logging
 logger:
@@ -501,6 +501,8 @@ touchscreen:
       mirror_y: false
       swap_xy: true
     calibration:
+      y_min: 0
+      x_min: 0
       x_max: 540
       y_max: 960
 
