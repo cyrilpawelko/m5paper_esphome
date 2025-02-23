@@ -24,7 +24,7 @@ external_components:
 
 # Enable logging
 logger:
-  level: INFO
+  level: DEBUG
 
 # Enable psram
 psram:
@@ -474,17 +474,17 @@ display:
       unsigned int g_width = 360;
       unsigned int g_height = 120;
       it.graph(g_left, g_top, id(co2_graph), COLOR_ON);
-      it.printf(g_left+105, g_top-30, id(small_font), "CO2 in the last 6h");
-      it.printf(g_left, g_top + g_height * 400 / 1000 - 16, id(small_font), "1000 ppm");
-      it.printf(g_left, g_top+g_height-14, id(small_font), "400 ppm");
-      it.line(g_left, g_top + g_height * 400 / 1000 + 5, g_left + g_width+10, g_top + g_height * 400 / 1000 + 5); // 1000 (= 1400 - 400) ppm
+      it.printf(g_left+105, g_top-30, id(small_font), "Chauffe-eau 6h");
+      it.printf(g_left, g_top + g_height * 20 / 50 - 16, id(small_font), "50°C");
+      it.printf(g_left, g_top+g_height-14, id(small_font), "20°C");
+      it.line(g_left, g_top + g_height * 55 / 20 + 5, g_left + g_width+10, g_top + g_height * 55 / 20 + 5); // 1000 (= 1400 - 400) ppm
 
 graph:
   - id: co2_graph
     sensor: indoor_co2
     duration: 6h
-    min_value: 400
-    max_value: 1400
+    min_value: 20
+    max_value: 55
     width: 370
     height: 130
     x_grid: 1h
@@ -519,7 +519,7 @@ switch:
 time:
   - platform: homeassistant
     id: homeassistant_time
-    timezone: Asia/Tokyo
+    timezone: Europe/Paris
     on_time_sync:
       - bm8563.write_time
   - platform: bm8563
@@ -543,7 +543,7 @@ sensor:
     pin: GPIO35
     name: ${device_name} battery voltage
     id: m5paper_battery_voltage
-    update_interval: 10s
+    update_interval: 100s
     attenuation: 11db
     filters:
       - multiply: 2 #1,27272727
@@ -561,7 +561,7 @@ sensor:
       state_class: "measurement"
       icon: mdi:water-percent
     address: 0x44
-    update_interval: 10s
+    update_interval: 100s
   - platform: template
     name: ${device_name} battery level
     id: m5paper_battery_level
@@ -569,7 +569,7 @@ sensor:
     device_class: "battery"
     state_class: "measurement"
     icon: mdi:battery-high
-    update_interval: 20s
+    update_interval: 200s
     lambda: |-
       constexpr float min_level = 3.52;
       constexpr float max_level = 4.15;
