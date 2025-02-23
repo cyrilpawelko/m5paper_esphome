@@ -307,7 +307,7 @@ display:
       it.rectangle(265+1, base_y+127+1, 270, 230, COLOR_ON);
       it.line(265+45, base_y+127, 535-45, base_y+127, COLOR_OFF);
       it.line(265+45+1, base_y+127+1, 535-45+1, base_y+127+1, COLOR_OFF);
-      it.print(275+50, base_y + 100, id(normal_font), "Outdoor");
+      it.print(275+50, base_y + 100, id(normal_font), "Extérieur");
       // Temperature
       it.print(275, base_y + 150, id(small_icons_font), id(material_icons_map)["mdi-thermometer"].c_str());
       float temp = id(outdoor_temperature).state;
@@ -342,7 +342,7 @@ display:
       it.rectangle(550+1, base_y+127+1, 270-10, 230, COLOR_ON);
       it.line(550+45, base_y+127, 820-45-10, base_y+127, COLOR_OFF);
       it.line(550+45+1, base_y+127+1, 820-45-10+1, base_y+127+1, COLOR_OFF);
-      it.print(560+60, base_y + 100, id(normal_font), "Indoor");
+      it.print(560+60, base_y + 100, id(normal_font), "Intérieur");
       // Temperature
       it.print(560, base_y + 150, id(small_icons_font), id(material_icons_map)["mdi-thermometer"].c_str());
       temp = id(indoor_temperature).state;
